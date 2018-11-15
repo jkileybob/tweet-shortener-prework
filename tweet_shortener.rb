@@ -1,5 +1,5 @@
 def dictionary
-  words = {
+  word = {
 		"hello" => "hi",
 		"to" => "2",
 		"two" => "2",
@@ -13,3 +13,12 @@ def dictionary
 	}
 end
 
+def word_substituter(tweet)
+  tweet.split(", ").collect do |word|
+		if dictionary.keys.include?(word.downcase)
+			word = dictionary[word.downcase]
+		else
+			return word
+		end
+	end.join(" ")
+end  
